@@ -1,13 +1,13 @@
 /*
 ** main.c file made by Carlos Martinez
 */
+#include <stdio.h>
 
 #ifndef EXIT_SUCCESS
  #define EXIT_SUCCESS 0u
 #endif
 
 /* USART6 Baremetal. */
-
 /*                                    Peripherals                                   */
 /* Peripheral base address. */
 #define PERIPHERAL_BASE (0x40000000ul)
@@ -165,14 +165,7 @@ int main (void)
     USART6_CR1 |= USART6_CR1_UE;
     while(1)
     {
-        __io_putchar('H');
-        __io_putchar('i');
-        __io_putchar(' ');
-        __io_putchar('U');
-        __io_putchar('A');
-        __io_putchar('R');
-        __io_putchar('T');
-        __io_putchar('\n');
+        printf("Baremetal UART using STDLIB\n\r");
         for(int i=0ul;i<2000000;i++){}
     }
     return EXIT_SUCCESS;

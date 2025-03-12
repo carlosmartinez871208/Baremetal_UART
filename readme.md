@@ -87,9 +87,13 @@ stm32f401_startup.c
 
     arm-none-eabi-gcc -c -mcpu=cortex-m4 -mthumb -std=gnu11 stm32f401_startup.c -o stm32f401_startup.o
 
+syscalls.c
+
+    arm-none-eabi-gcc -c -mcpu=cortex-m4 -mthumb -std=gnu11 syscalls.c -o syscalls.o
+
 Linking.
 
-    arm-none-eabi-gcc -nostdlib -T stm32f401_ls.ld *.o -o stm32f401 -Wl,-Map=stm32f401.map
+    arm-none-eabi-gcc -mcpu=cortex-m4 -mthumb --specs=nano.specs -T stm32f401_ls.ld *.o -o stm32f401 -Wl,-Map=stm32f401.map
 
 ### Clean up command
 
